@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light">
       <a href="#">
         <div className="images">
-          <Image src="/Logo.jpg" height={50} width={131} priority />
+          <Image src="/Logo.jpg" height={50} width={131} priority alt="" />
         </div>
       </a>
       <button

@@ -3,7 +3,7 @@ const benefit = () => {
   return (
     <div
       className="content-3-2 container-xxl mx-auto position-relative"
-      style={{ fontFamily: '"Poppins", sans-serif' }}
+      style={{ fontFamily: "Poppins" }}
     >
       <div className="d-flex flex-lg-row flex-column align-items-center">
         {/* Left Column */}
@@ -14,6 +14,7 @@ const benefit = () => {
             height={500}
             width={500}
             src="/Vector.png"
+            alt=""
           />
         </div>
         {/* Right Column */}
@@ -30,7 +31,7 @@ const benefit = () => {
                 <span className="circle text-white d-flex align-items-center justify-content-center">
                   1
                 </span>
-                Pembina Yang Terpercaya &amp; Berpengalaman
+                Pembina Yang Terpercaya dan Berpengalaman
               </h4>
               <p className="text-caption">
                 We have provided highly experienced mentors
@@ -46,7 +47,7 @@ const benefit = () => {
                 Mempelajari Fullstack Web Development
               </h4>
               <p className="text-caption">
-                Are you busy at work so it's hard to consult? don't
+                Are you busy at work so its hard to consult? dont
                 <br className="d-sm-inline d-none" />
                 worry because you can access anytime.
               </p>

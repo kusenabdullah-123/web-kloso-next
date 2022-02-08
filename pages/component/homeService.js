@@ -49,6 +49,7 @@ const homeService = () => {
                 height={500}
                 width={500}
                 src="/Saly-31.png"
+                alt=""
               />
             </div>
           </div>

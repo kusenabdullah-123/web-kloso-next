@@ -32,6 +32,7 @@ const header = () => {
             className="h-auto mw-100"
             src="/Saly-10.png"
             width={578}
+            alt=""
             height={457}
           />
         </div>
