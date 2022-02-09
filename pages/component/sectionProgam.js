@@ -21,18 +21,14 @@ const sectionProgam = () => {
       </div>
       <div className="row mt-5">
         <CardProgam
-          configIcon={{
-            icon: "teenyicons:linux-solid",
-          }}
+          configIcon={"teenyicons:linux-solid"}
           offset={"offset-lg-1"}
           clas={"col-lg-2"}
           title={"Install Linux"}
           desc={"Instalasi Linux Wajib Untuk Seluruh Anggota K.L.O.S.O"}
         />
         <CardProgam
-          configIcon={{
-            icon: "clarity:nodes-line",
-          }}
+          configIcon={"clarity:nodes-line"}
           clas={"col-lg-2"}
           title={"Pelatihan Web Desain"}
           desc={
@@ -40,17 +36,13 @@ const sectionProgam = () => {
           }
         />
         <CardProgam
-          configIcon={{
-            icon: "teenyicons:linux-solid",
-          }}
+          configIcon={"clarity:nodes-line"}
           clas={"col-lg-2"}
           title={"Out-Bond"}
           desc={"Out Bond Dengan Seluruh Anggota K.L.O.S.O"}
         />
         <CardProgam
-          configIcon={{
-            icon: "akar-icons:nextjs-fill",
-          }}
+          configIcon={"clarity:nodes-line"}
           clas={"col-lg-2"}
           title={"Pelatihan & Lomba Fullstack"}
           desc={
@@ -58,9 +50,7 @@ const sectionProgam = () => {
           }
         />
         <CardProgam
-          configIcon={{
-            icon: "teenyicons:linux-solid",
-          }}
+          configIcon={"clarity:nodes-line"}
           clas={"col-lg-2"}
           title={"CangKir GaDing"}
           desc={"CangKir GaDing Anggota UKM K.L.O.S.O dengan pembina"}

@@ -47,10 +47,10 @@ const footer = () => {
         </div>
         <div className="col-lg-2 row align-items-center">
           <div className="col-lg-5">
-            <Image src="/logos.png" alt="" height={70} width={70} alt="" />
+            {/* <Image src="/logos.png" alt="" height={70} width={70} alt="" /> */}
           </div>
           <div className="col-lg-5">
-            <Image src="/logok.png" alt="" height={70} width={70} alt="" />
+            {/* <Image src="/logok.png" alt="" width={70} height={70} alt="" /> */}
           </div>
         </div>
       </footer>
