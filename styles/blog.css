@@ -1,0 +1,46 @@
+body .container-fluid.article {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+body .container-fluid.article figure {
+  padding: 0px;
+  margin: 0px;
+}
+
+body .container-fluid.article figure img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+body .container-fluid.article .content section h1 {
+  font-size: 24px;
+}
+
+body .container-fluid.article .content section article {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+body .container-fluid.article .content section article h2 {
+  font-size: 20px;
+}
+
+body .container-fluid.article .content section article figure {
+  padding: 0px;
+  margin: 0px;
+}
+
+body .container-fluid.article .content section article figure img {
+  height: 100%;
+  width: 100%;
+}
+
+body .container-fluid.article .content aside section h1 {
+  font-size: 24px;
+}
+
+body .container-fluid.article .content aside section article h2 {
+  font-size: 18px;
+}
