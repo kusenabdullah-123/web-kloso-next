@@ -2,6 +2,7 @@ import Navbar from "./component/navbar";
 import BlogArticle from "./component/blogarticle";
 import AsideArticle from "./component/asidearticle";
 import Footer from "./component/footer";
+import Link from "next/link";
 const blog = () => {
   const dataArticle = [
     {
@@ -61,34 +62,34 @@ const blog = () => {
                     <span className="page-link"> Page 1 Of 36 </span>
                   </li>
                   <li className="page-item">
-                    <a href="/blog?page=2" className="page-link">
-                      1
-                    </a>
+                    <Link href="/blog?page=2">
+                      <a className="page-link">1</a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a href="/blog?page=2" className="page-link">
-                      2
-                    </a>
+                    <Link href="/blog?page=2">
+                      <a className="page-link">2</a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a href="/blog?page=2" className="page-link">
-                      3
-                    </a>
+                    <Link href="/blog?page=2">
+                      <a className="page-link">3</a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a href="/blog?page=2" className="page-link">
-                      4
-                    </a>
+                    <Link href="/blog?page=2">
+                      <a className="page-link">4</a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a href="/blog?page=2" className="page-link">
-                      5
-                    </a>
+                    <Link href="/blog?page=2">
+                      <a className="page-link">5</a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a href="/blog?page=2" className="page-link">
-                      Next
-                    </a>
+                    <Link href="/blog?page=2">
+                      <a className="page-link">Next</a>
+                    </Link>
                   </li>
                 </ul>
               </div>

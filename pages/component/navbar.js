@@ -1,13 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <a href="#">
-        <div className="images">
-          <Image src="/Logo.jpg" height={50} width={131} priority alt="" />
-        </div>
-      </a>
+      <Link href="/">
+        <a>
+          <div className="images">
+            <Image src="/Logo.jpg" height={50} width={131} priority alt="" />
+          </div>
+        </a>
+      </Link>
       <button
         className="navbar-toggler border-0"
         type="button"
@@ -44,29 +47,29 @@ const Navbar = () => {
             >
               <ul className="navbar-nav responsive me-auto mt-2 mt-lg-0">
                 <li className="nav-item active">
-                  <a className="nav-link" href="index.html">
-                    Home
-                  </a>
+                  <Link href="/">
+                    <a className="nav-link">Home</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="services.html">
-                    Service
-                  </a>
+                  <Link href="/services">
+                    <a className="nav-link">Services</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="blog.html">
-                    Blog
-                  </a>
+                  <Link href="/gallery">
+                    <a className="nav-link">Gallery</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="gallery.html">
-                    Gallery
-                  </a>
+                  <Link href="/blog">
+                    <a className="nav-link">Blog</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="about.html">
-                    About Us
-                  </a>
+                  <Link href="/about">
+                    <a className="nav-link">About</a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -76,29 +79,48 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarTogglerDemo">
         <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <a className="nav-link" href="index.html">
-              Home
-            </a>
+            <Link href="/">
+              <a className="nav-link">Home</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="services.html">
-              Services
-            </a>
+            <Link href="/services">
+              <a className="nav-link">Services</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="blog.html">
-              Blog
-            </a>
+            <Link href="/gallery">
+              <a className="nav-link">Gallery</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="gallery.html">
-              Gallery
-            </a>
+            <Link href="/blog">
+              <a className="nav-link">Blog</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="about.html">
-              About Us
-            </a>
+            <Link href="/about">
+              <a className="nav-link">About</a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href="/daftar">
+              <a
+                className="btn btn-success"
+                role="button"
+                style={{
+                  width: 125,
+                  height: 48,
+                  backgroundColor: "#f3fff4",
+                  color: "#4d9651",
+                  border: "none",
+                  borderRadius: 10,
+                  fontSize: 22,
+                }}
+              >
+                Daftar
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
