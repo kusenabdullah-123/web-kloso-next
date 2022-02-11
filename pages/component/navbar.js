@@ -104,7 +104,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/daftar">
+            <Link href="/login">
               <a
                 className="btn btn-success"
                 role="button"
@@ -118,7 +118,7 @@ const Navbar = () => {
                   fontSize: 22,
                 }}
               >
-                Daftar
+                Login
               </a>
             </Link>
           </li>

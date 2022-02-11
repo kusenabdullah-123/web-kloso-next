@@ -9,6 +9,7 @@ specifiers:
   next: 12.0.10
   react: 17.0.2
   react-dom: 17.0.2
+  react-hook-form: ^7.26.1
   sharp: ^0.30.0
 
 dependencies:
@@ -17,6 +18,7 @@ dependencies:
   next: 12.0.10_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-hook-form: 7.26.1_react@17.0.2
   sharp: 0.30.0
 
 devDependencies:
@@ -1725,6 +1727,15 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
       scheduler: 0.20.2
+    dev: false
+
+  /react-hook-form/7.26.1_react@17.0.2:
+    resolution: {integrity: sha512-/Qw/7IsCCVfYSGryJAMcouEpIDgWZJPeHR15J0IFSgo1BgofcfnY+AeUDcYD1E3yzzXYpR7NHyJehhkBKvjdMg==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /react-is/16.13.1:

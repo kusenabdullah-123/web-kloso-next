@@ -1,6 +1,19 @@
 import Navbar from "./component/navbar";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+
 const daftar = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  // function to output form data
+  // we need to pass it to onSubmit of form element
+  const onSubmit = (formData) => {
+    alert(JSON.stringify(formData));
+  };
   return (
     <section
       className="h-100 w-100 bg-white"
@@ -27,18 +40,63 @@ const daftar = () => {
               <h3 className="title-text text-lg-center mb-5">
                 Formulir Pendaftaran UKM K.L.O.S.O
               </h3>
-              <form action="" method="post">
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Nama Lengkap</label>
                   <div className="d-flex w-100 div-input">
                     <input
+                      {...register("nama", {
+                        required: "Required",
+                      })}
                       className="input-field border-0"
-                      type="text"
-                      placeholder="Nama Lengkap"
-                      autoComplete="on"
-                      required
+                      placeholder="Masukkan Nama Anda"
                     />
                   </div>
+                  {errors.nama && <p> Name is required.</p>}
+                </div>
+                <div style={{ marginBottom: "1.75rem" }}>
+                  <label className="d-block input-label">Email</label>
+                  <div className="d-flex w-100 div-input">
+                    <input
+                      {...register("email", {
+                        required: "Required",
+                      })}
+                      type="email"
+                      className="input-field border-0"
+                      placeholder="Masukkan Alamat Email"
+                    />
+                  </div>
+                  {errors.email && <p> Email is required.</p>}
+                </div>
+                <div style={{ marginBottom: "1.75rem" }}>
+                  <label className="d-block input-label">Password</label>
+                  <div className="d-flex w-100 div-input">
+                    <input
+                      {...register("password", {
+                        required: "Required",
+                      })}
+                      type="password"
+                      className="input-field border-0"
+                      placeholder="Masukkan Password"
+                    />
+                  </div>
+                  {errors.password && <p> Password is required.</p>}
+                </div>
+                <div style={{ marginBottom: "1.75rem" }}>
+                  <label className="d-block input-label">
+                    Verifikasi Password
+                  </label>
+                  <div className="d-flex w-100 div-input">
+                    <input
+                      {...register("verification", {
+                        required: "Required",
+                      })}
+                      type="password"
+                      className="input-field border-0"
+                      placeholder="Masukkan password kembali"
+                    />
+                  </div>
+                  {errors.verfication && <p> Password is required.</p>}
                 </div>
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Angkatan</label>
@@ -48,7 +106,6 @@ const daftar = () => {
                       type="text"
                       placeholder="Tahun Angkatan"
                       autoComplete="on"
-                      required
                     />
                   </div>
                 </div>

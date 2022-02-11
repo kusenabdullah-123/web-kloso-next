@@ -1,5 +1,6 @@
 import CardProgam from "./cardProgam";
-const sectionProgam = () => {
+
+const sectionProgam = (props) => {
   return (
     <div
       className="content-3-2 container-xxl mx-auto mt-5 position-relative"

@@ -5,8 +5,14 @@ import Benefit from "./component/benefit";
 import HomeService from "./component/homeService";
 import Blog from "./component/blog";
 import Footer from "./component/footer";
+export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:1337/Prokers/");
+  const 
+  const proker = await res.json();
+  return { props: { proker } };
+};
 
-export default function Home() {
+export default function Home(props) {
   return (
     <section
       className="h-100 w-100 bg-white"

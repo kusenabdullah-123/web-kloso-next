@@ -2,6 +2,7 @@ import Navbar from "./component/navbar";
 import Footer from "./component/footer";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 const about = () => {
   return (
     <section
@@ -43,22 +44,24 @@ const about = () => {
                   >
                     Gabung Menjadi Bagian Kami?
                   </h1>
-                  <a
-                    className="btn btn-success"
-                    href="Form/index.html"
-                    role="button"
-                    style={{
-                      width: 198,
-                      height: 48,
-                      backgroundColor: "#f3fff4",
-                      color: "#4d9651",
-                      border: "none",
-                      borderRadius: 10,
-                      fontSize: 22,
-                    }}
-                  >
-                    Daftar
-                  </a>
+                  <Link href="/daftar">
+                    <a
+                      className="btn btn-success"
+                      href=""
+                      role="button"
+                      style={{
+                        width: 198,
+                        height: 48,
+                        backgroundColor: "#f3fff4",
+                        color: "#4d9651",
+                        border: "none",
+                        borderRadius: 10,
+                        fontSize: 22,
+                      }}
+                    >
+                      Daftar
+                    </a>
+                  </Link>
                 </div>
                 {/* Right Column */}
                 <div className="right-column row text-center d-flex pe-0">
