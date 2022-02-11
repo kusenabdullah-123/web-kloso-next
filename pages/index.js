@@ -7,7 +7,7 @@ import Blog from "./component/blog";
 import Footer from "./component/footer";
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:1337/Prokers/");
-  const 
+
   const proker = await res.json();
   return { props: { proker } };
 };
