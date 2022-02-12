@@ -21,7 +21,31 @@ const sectionProgam = (props) => {
         </h3>
       </div>
       <div className="row mt-5">
-        <CardProgam
+        {props.prokers.map((data, index) => {
+          if (index == 0) {
+            return (
+              <CardProgam
+                key={data.id}
+                configIcon={data.icon}
+                offset={"offset-lg-1"}
+                clas={"col-lg-2"}
+                title={data.title}
+                desc={data.desc}
+              />
+            );
+          } else {
+            return (
+              <CardProgam
+                key={data.id}
+                configIcon={data.icon}
+                clas={"col-lg-2"}
+                title={data.title}
+                desc={data.desc}
+              />
+            );
+          }
+        })}
+        {/* <CardProgam
           configIcon={"teenyicons:linux-solid"}
           offset={"offset-lg-1"}
           clas={"col-lg-2"}
@@ -55,7 +79,7 @@ const sectionProgam = (props) => {
           clas={"col-lg-2"}
           title={"CangKir GaDing"}
           desc={"CangKir GaDing Anggota UKM K.L.O.S.O dengan pembina"}
-        />
+        /> */}
       </div>
     </div>
   );

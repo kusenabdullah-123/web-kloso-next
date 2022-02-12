@@ -3,28 +3,13 @@ import BlogArticle from "./component/blogarticle";
 import AsideArticle from "./component/asidearticle";
 import Footer from "./component/footer";
 import Link from "next/link";
-const blog = () => {
-  const dataArticle = [
-    {
-      image: "gambar.png",
-      title:
-        "Daftar Tim, Grup, Format, Jadwal, dan Cara Nonton PMPL SEAChampionship S4",
-      desc: "20 tim PUBG Mobile terbaik se-Asia Tenggara sudah siap memperebutkan total prize pool senilai Rp2,8 miliar di PMPL SEA Championship S4 mulai pekan depan.",
-    },
-    {
-      image: "gambar.png",
-      title:
-        "Daftar Tim, Grup, Format, Jadwal, dan Cara Nonton PMPL SEAChampionship S4",
-      desc: "20 tim PUBG Mobile terbaik se-Asia Tenggara sudah siap memperebutkan total prize pool senilai Rp2,8 miliar di PMPL SEA Championship S4 mulai pekan depan.",
-    },
-  ];
-  const asideArticleData = [
-    {
-      time: "2 days ago",
-      image: "gambar.png",
-      title: "11 game pc yang lagi rame berdasarkan jumlah pemain di steam",
-    },
-  ];
+export const getStaticProps = async () => {
+  const res1 = await fetch("http://localhost:1337/Blogs/");
+
+  const blogs = await res1.json();
+  return { props: { blogs } };
+};
+const blog = (props) => {
   return (
     <>
       <section
@@ -45,7 +30,7 @@ const blog = () => {
             <h1>Blog Terbaru</h1>
             <div className="articles">
               {/* article */}
-              {dataArticle.map((data, index) => {
+              {props.blogs.map((data, index) => {
                 return (
                   <BlogArticle
                     key={index}
@@ -99,7 +84,7 @@ const blog = () => {
             <section>
               <h1>Blog</h1>
               {/* aside article */}
-              {asideArticleData.map((aside, index) => {
+              {/* {asideArticleData.map((aside, index) => {
                 return (
                   <AsideArticle
                     key={index}
@@ -108,7 +93,7 @@ const blog = () => {
                     time={aside.time}
                   />
                 );
-              })}
+              })} */}
             </section>
           </aside>
         </div>

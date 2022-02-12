@@ -1,5 +1,5 @@
-import Image from "next/image";
-const blog = () => {
+import CardBlogHome from "./cardBlogHome";
+const blog = (props) => {
   return (
     <section
       className="h-100 w-100 bg-white mb-5 mt-5"
@@ -25,7 +25,11 @@ const blog = () => {
           </div>
           <div className="container-fluid">
             <div className="row justify-content-around">
-              <div className="card col-lg-2 p-1" style={{ borderRadius: 10 }}>
+              {props.blogs.map((blog, index) => {
+                return <CardBlogHome key={index} data={blog} />;
+              })}
+
+              {/* <div className="card col-lg-2 p-1" style={{ borderRadius: 10 }}>
                 <div className="image">
                   <Image
                     src="/IMG_9118.JPG"
@@ -96,7 +100,7 @@ const blog = () => {
                     up the bulk of the cards content.
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
