@@ -1,18 +1,29 @@
 import Navbar from "./component/navbar";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const daftar = () => {
+  const router = useRouter();
+  const url = "http://localhost:1337/auth/local/register";
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  // function to output form data
-  // we need to pass it to onSubmit of form element
-  const onSubmit = (formData) => {
-    alert(JSON.stringify(formData));
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      const response = await axios.post(url, data);
+      if (response.status == 200) {
+        router.push("/");
+      }
+    } catch (err) {
+      console.log("Err", err);
+    }
   };
   return (
     <section
@@ -45,14 +56,31 @@ const daftar = () => {
                   <label className="d-block input-label">Nama Lengkap</label>
                   <div className="d-flex w-100 div-input">
                     <input
-                      {...register("nama", {
+                      {...register("fullname", {
                         required: "Required",
                       })}
                       className="input-field border-0"
                       placeholder="Masukkan Nama Anda"
                     />
                   </div>
-                  {errors.nama && <p> Name is required.</p>}
+                  {errors.nama && (
+                    <p style={{ color: "red" }}> Name is required.</p>
+                  )}
+                </div>
+                <div style={{ marginBottom: "1.75rem" }}>
+                  <label className="d-block input-label">username</label>
+                  <div className="d-flex w-100 div-input">
+                    <input
+                      {...register("username", {
+                        required: "Required",
+                      })}
+                      className="input-field border-0"
+                      placeholder="Masukkan Nama Anda"
+                    />
+                  </div>
+                  {errors.username && (
+                    <p style={{ color: "red" }}> Username is required.</p>
+                  )}
                 </div>
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Email</label>
@@ -66,7 +94,9 @@ const daftar = () => {
                       placeholder="Masukkan Alamat Email"
                     />
                   </div>
-                  {errors.email && <p> Email is required.</p>}
+                  {errors.email && (
+                    <p style={{ color: "red" }}> Email is required.</p>
+                  )}
                 </div>
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Password</label>
@@ -80,43 +110,37 @@ const daftar = () => {
                       placeholder="Masukkan Password"
                     />
                   </div>
-                  {errors.password && <p> Password is required.</p>}
-                </div>
-                <div style={{ marginBottom: "1.75rem" }}>
-                  <label className="d-block input-label">
-                    Verifikasi Password
-                  </label>
-                  <div className="d-flex w-100 div-input">
-                    <input
-                      {...register("verification", {
-                        required: "Required",
-                      })}
-                      type="password"
-                      className="input-field border-0"
-                      placeholder="Masukkan password kembali"
-                    />
-                  </div>
-                  {errors.verfication && <p> Password is required.</p>}
+                  {errors.password && (
+                    <p style={{ color: "red" }}> Password is required.</p>
+                  )}
                 </div>
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Angkatan</label>
                   <div className="d-flex w-100 div-input">
                     <input
+                      {...register("angkatan", {
+                        required: "Required",
+                      })}
                       className="input-field border-0"
                       type="text"
                       placeholder="Tahun Angkatan"
                       autoComplete="on"
                     />
                   </div>
+                  {errors.angkatan && (
+                    <p style={{ color: "red" }}> Angkatan is required.</p>
+                  )}
                 </div>
                 <div className="mb-3">
                   <h1 className="judul">Jurusan :</h1>
                   <div className="radio d-flex flex-row">
                     <div className="form-check me-5">
                       <input
+                        {...register("jurusan")}
                         className="form-check-input"
                         type="radio"
                         name="jurusan"
+                        value="S1 TI"
                         id="jurusan1"
                         defaultChecked
                       />
@@ -126,6 +150,8 @@ const daftar = () => {
                     </div>
                     <div className="form-check">
                       <input
+                        {...register("jurusan")}
+                        value="S1 TI"
                         className="form-check-input"
                         type="radio"
                         name="jurusan"
@@ -143,6 +169,8 @@ const daftar = () => {
                   <div className="radio d-flex flex-row">
                     <div className="form-check me-5">
                       <input
+                        value="Laki-Laki"
+                        {...register("jenisKelamin")}
                         className="form-check-input"
                         type="radio"
                         name="gender"
@@ -155,6 +183,8 @@ const daftar = () => {
                     </div>
                     <div className="form-check">
                       <input
+                        value="Perempuan"
+                        {...register("jenisKelamin")}
                         className="form-check-input"
                         type="radio"
                         name="gender"
@@ -171,12 +201,18 @@ const daftar = () => {
                   <label className="d-block input-label">Alasan</label>
                   <div className="d-flex w-100">
                     <textarea
+                      {...register("alasan", {
+                        required: "Required",
+                      })}
                       className="form-control"
                       id="alasan"
                       rows={3}
                       defaultValue={""}
                     />
                   </div>
+                  {errors.alasan && (
+                    <p style={{ color: "red" }}> Alasan is required.</p>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label

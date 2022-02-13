@@ -6,11 +6,13 @@ import HomeService from "./component/homeService";
 import Blog from "./component/blog";
 import Footer from "./component/footer";
 import Script from "next/script";
+import axios from "axios";
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:1337/Prokers/");
-  const res1 = await fetch("http://localhost:1337/Blogs/");
-  const proker = await res.json();
-  const blogs = await res1.json();
+  const response = await axios.get("http://localhost:1337/Prokers/");
+  const response2 = await axios.get("http://localhost:1337/Blogs/");
+  const proker = response.data;
+  const blogs = response2.data;
+
   return { props: { proker, blogs } };
 };
 
