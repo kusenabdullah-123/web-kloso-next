@@ -16,8 +16,11 @@ const daftar = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
-      const response = await axios.post(url, data);
+      const response = await axios({
+        method: "POST",
+        url: url,
+        data: data,
+      });
       if (response.status == 200) {
         router.push("/");
       }
@@ -51,7 +54,7 @@ const daftar = () => {
               <h3 className="title-text text-lg-center mb-5">
                 Formulir Pendaftaran UKM K.L.O.S.O
               </h3>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} action="">
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Nama Lengkap</label>
                   <div className="d-flex w-100 div-input">
@@ -214,16 +217,7 @@ const daftar = () => {
                     <p style={{ color: "red" }}> Alasan is required.</p>
                   )}
                 </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="foto"
-                    className="form-label"
-                    style={{ color: "#4d9651" }}
-                  >
-                    Foto :
-                  </label>
-                  <input className="form-control" type="file" id="foto" />
-                </div>
+
                 <button
                   className="btn btn-fill text-white d-block w-50"
                   type="submit"

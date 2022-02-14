@@ -21,30 +21,32 @@ const sectionProgam = (props) => {
         </h3>
       </div>
       <div className="row mt-5">
-        {props.prokers.map((data, index) => {
-          if (index == 0) {
-            return (
-              <CardProgam
-                key={data.id}
-                configIcon={data.icon}
-                offset={"offset-lg-1"}
-                clas={"col-lg-2"}
-                title={data.title}
-                desc={data.desc}
-              />
-            );
-          } else {
-            return (
-              <CardProgam
-                key={data.id}
-                configIcon={data.icon}
-                clas={"col-lg-2"}
-                title={data.title}
-                desc={data.desc}
-              />
-            );
-          }
-        })}
+        {props.prokers
+          ? props.prokers.map((data, index) => {
+              if (index == 0) {
+                return (
+                  <CardProgam
+                    key={data.id}
+                    configIcon={data.icon}
+                    offset={"offset-lg-1"}
+                    clas={"col-lg-2"}
+                    title={data.title}
+                    desc={data.desc}
+                  />
+                );
+              } else {
+                return (
+                  <CardProgam
+                    key={data.id}
+                    configIcon={data.icon}
+                    clas={"col-lg-2"}
+                    title={data.title}
+                    desc={data.desc}
+                  />
+                );
+              }
+            })
+          : null}
         {/* <CardProgam
           configIcon={"teenyicons:linux-solid"}
           offset={"offset-lg-1"}

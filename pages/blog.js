@@ -5,7 +5,6 @@ import Footer from "./component/footer";
 import Link from "next/link";
 export const getStaticProps = async () => {
   const res1 = await fetch("http://localhost:1337/Blogs/");
-
   const blogs = await res1.json();
   return { props: { blogs } };
 };
@@ -30,16 +29,18 @@ const blog = (props) => {
             <h1>Blog Terbaru</h1>
             <div className="articles">
               {/* article */}
-              {props.blogs.map((data, index) => {
-                return (
-                  <BlogArticle
-                    key={index}
-                    title={data.title}
-                    image={data.image}
-                    desc={data.desc}
-                  />
-                );
-              })}
+              {props.blogs
+                ? props.blogs.map((data, index) => {
+                    return (
+                      <BlogArticle
+                        key={index}
+                        title={data.title}
+                        image={data.image}
+                        desc={data.desc}
+                      />
+                    );
+                  })
+                : null}
               {/* end Article */}
               <div className="page">
                 <ul className="pagination">

@@ -25,9 +25,11 @@ const blog = (props) => {
           </div>
           <div className="container-fluid">
             <div className="row justify-content-around">
-              {props.blogs.map((blog, index) => {
-                return <CardBlogHome key={index} data={blog} />;
-              })}
+              {props.blogs
+                ? props.blogs.map((blog, index) => {
+                    return <CardBlogHome key={index} data={blog} />;
+                  })
+                : null}
 
               {/* <div className="card col-lg-2 p-1" style={{ borderRadius: 10 }}>
                 <div className="image">

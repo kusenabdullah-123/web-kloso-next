@@ -32,19 +32,23 @@ const daftar = () => {
           style={{ fontFamily: '"Poppins", sans-serif' }}
         >
           <div className="position-relative d-none d-lg-block h-100 width-left">
-            <img
-              className="position-absolute img-fluid centered"
-              src="http://api.elements.buildwithangga.com/storage/files/2/assets/Empty%20State/EmptyState3/Empty-3-5.png"
-              alt
+            <Image
+              height={500}
+              width={700}
+              className="img-fluid"
+              src="/login.png"
+              alt=""
             />
           </div>
           <div className="d-flex mx-auto align-items-left justify-content-left width-right mx-lg-0">
             <div className="right mx-lg-0 mx-auto">
               <div className="align-items-center justify-content-center d-lg-none d-flex">
-                <img
+                <Image
+                  height={500}
+                  width={700}
                   className="img-fluid"
-                  src="http://api.elements.buildwithangga.com/storage/files/2/assets/Empty%20State/EmptyState3/Empty-3-5.png"
-                  alt
+                  src="/login.png"
+                  alt=""
                 />
               </div>
               <h1 className="title-text">Log In</h1>
@@ -52,7 +56,7 @@ const daftar = () => {
                 UKM K.L.O.S.O
                 <br />
               </h1>
-              <form style={{ marginTop: "1.5rem" }} action method="post">
+              <form style={{ marginTop: "1.5rem" }} action="" method="post">
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label htmlFor className="d-block input-label">
                     Email
