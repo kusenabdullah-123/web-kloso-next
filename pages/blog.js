@@ -4,7 +4,7 @@ import AsideArticle from "./component/asidearticle";
 import Footer from "./component/footer";
 import Link from "next/link";
 export const getStaticProps = async () => {
-  const res1 = await fetch("http://localhost:1337/Blogs/");
+  const res1 = await fetch("https://kloso-strapi-mongo.herokuapp.com/Blogs/");
   const blogs = await res1.json();
   return { props: { blogs } };
 };
