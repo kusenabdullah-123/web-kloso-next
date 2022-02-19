@@ -36,11 +36,13 @@ export default function Home({ proker, blogs }) {
         if (res.status == 200) {
           contex.isAuthenticated = true;
           contex.user = res.data;
+
           setUser(res.data);
         }
       } catch (error) {
         contex.isAuthenticated = false;
         setUser(null);
+        Cookie.remove("token");
       }
     } else {
       contex.isAuthenticated = false;
@@ -49,8 +51,9 @@ export default function Home({ proker, blogs }) {
   }, []);
   useEffect(async () => {
     const token = Cookie.get("token");
-    if (user !== null && user.users_id !== null) {
-      const response = await axios.get(`${url}Anggotas/${user.users_id}`, {
+
+    if (user !== null && user.anggota_id !== undefined) {
+      const response = await axios.get(`${url}Anggotas/${user.anggota_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -77,7 +80,7 @@ export default function Home({ proker, blogs }) {
           style={{ fontFamily: '"Poppins", sans-serif' }}
         >
           {/* navbar */}
-          <Navbar url={url} />
+          <Navbar />
           {/* header */}
           <Header />
         </div>

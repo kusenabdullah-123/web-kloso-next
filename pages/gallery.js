@@ -7,6 +7,7 @@ import { useContext } from "react";
 import AppContext from "../context/appContext";
 const gallery = () => {
   const { isAuthenticated } = useContext(AppContext);
+
   return isAuthenticated ? (
     <section
       className="h-100 w-100 bg-white"

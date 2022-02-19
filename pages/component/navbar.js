@@ -150,7 +150,7 @@ const Navbar = (props) => {
           </li>
 
           {isAuthenticated ? (
-            <Profile user={user} foto={foto} url={props.url} />
+            <Profile user={user} foto={foto} />
           ) : (
             <li className="nav-item">
               <Link href="/login">

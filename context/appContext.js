@@ -5,6 +5,6 @@ import React from "react";
 const AppContext = React.createContext({
   isAuthenticated: false,
   user: null,
-  foto: null,
+  foto: "/profile.png",
 });
 export default AppContext;
