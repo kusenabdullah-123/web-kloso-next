@@ -222,6 +222,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .header-2-2 .navbar-light .navbar-nav .nav-link {
+    font: 300 18px/1.5rem Poppins, sans-serif;
+    color: black;
+    transition: 0.3s;
+  }
+}
 @media (min-width: 768px) {
   .header-2-2 .navbar {
     padding: 3rem 4rem;
@@ -350,4 +357,9 @@
   .footer-2-2 .info-footer {
     padding: 0 6rem 3rem;
   }
+}
+
+.rounded-full {
+  border-radius: 50%;
+  object-fit: cover;
 }

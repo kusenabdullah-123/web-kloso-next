@@ -1,8 +1,13 @@
 import Navbar from "./component/navbar";
-import Image from "next/image";
+// import Image from "next/image";
+
 import Footer from "./component/footer";
+import Unauthorized from "./component/unauthorized";
+import { useContext } from "react";
+import AppContext from "../context/appContext";
 const gallery = () => {
-  return (
+  const { isAuthenticated } = useContext(AppContext);
+  return isAuthenticated ? (
     <section
       className="h-100 w-100 bg-white"
       style={{ boxSizing: "border-box" }}
@@ -19,6 +24,8 @@ const gallery = () => {
         <Footer />
       </div>
     </section>
+  ) : (
+    <Unauthorized />
   );
 };
 export default gallery;

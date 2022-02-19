@@ -1,7 +1,52 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
+import appContext from "../../context/appContext";
 
-const Navbar = () => {
+const Profile = (props) => {
+  return (
+    <>
+      <Image
+        src={props.foto}
+        className="rounded-full"
+        alt="profile"
+        height={50}
+        width={50}
+      />
+      <li className="nav-item dropdown">
+        <a
+          className="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {props.user.username}
+        </a>
+        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <Link href="/setting">
+              <a className="dropdown-item" href="#">
+                Setting
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/logout">
+              <a className="dropdown-item" href="#">
+                Logout
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </li>
+    </>
+  );
+};
+const Navbar = (props) => {
+  const { isAuthenticated, user, foto } = useContext(appContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <Link href="/">
@@ -103,25 +148,30 @@ const Navbar = () => {
               <a className="nav-link">About</a>
             </Link>
           </li>
-          <li className="nav-item">
-            <Link href="/daftar">
-              <a
-                className="btn btn-success"
-                role="button"
-                style={{
-                  width: 125,
-                  height: 48,
-                  backgroundColor: "#f3fff4",
-                  color: "#4d9651",
-                  border: "none",
-                  borderRadius: 10,
-                  fontSize: 22,
-                }}
-              >
-                Daftar
-              </a>
-            </Link>
-          </li>
+
+          {isAuthenticated ? (
+            <Profile user={user} foto={foto} url={props.url} />
+          ) : (
+            <li className="nav-item">
+              <Link href="/login">
+                <a
+                  className="btn btn-success"
+                  role="button"
+                  style={{
+                    width: 125,
+                    height: 48,
+                    backgroundColor: "#f3fff4",
+                    color: "#4d9651",
+                    border: "none",
+                    borderRadius: 10,
+                    fontSize: 22,
+                  }}
+                >
+                  Login
+                </a>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

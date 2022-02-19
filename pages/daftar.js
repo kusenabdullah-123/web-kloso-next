@@ -6,8 +6,7 @@ import { useRouter } from "next/router";
 
 const daftar = () => {
   const router = useRouter();
-  const url = "http://localhost:1337/auth/local/register";
-
+  const url = "http://localhost:1337/auth/local/register" || process.env.SERVER;
   const {
     register,
     handleSubmit,
@@ -21,11 +20,12 @@ const daftar = () => {
         url: url,
         data: data,
       });
+
       if (response.status == 200) {
         router.push("/");
       }
     } catch (err) {
-      console.log("Err", err);
+      console.log("Err", err.response);
     }
   };
   return (
@@ -56,18 +56,34 @@ const daftar = () => {
               </h3>
               <form onSubmit={handleSubmit(onSubmit)} action="">
                 <div style={{ marginBottom: "1.75rem" }}>
-                  <label className="d-block input-label">Nama Lengkap</label>
+                  <label className="d-block input-label">Email</label>
                   <div className="d-flex w-100 div-input">
                     <input
-                      {...register("fullname", {
+                      {...register("email", {
+                        required: "Required",
+                      })}
+                      type="email"
+                      className="input-field border-0"
+                      placeholder="Masukkan Alamat Email"
+                    />
+                  </div>
+                  {errors.email && (
+                    <p style={{ color: "red" }}> Email is required.</p>
+                  )}
+                </div>
+                <div style={{ marginBottom: "1.75rem" }}>
+                  <label className="d-block input-label">NIM</label>
+                  <div className="d-flex w-100 div-input">
+                    <input
+                      {...register("nim", {
                         required: "Required",
                       })}
                       className="input-field border-0"
                       placeholder="Masukkan Nama Anda"
                     />
                   </div>
-                  {errors.nama && (
-                    <p style={{ color: "red" }}> Name is required.</p>
+                  {errors.nim && (
+                    <p style={{ color: "red" }}> NIM is required.</p>
                   )}
                 </div>
                 <div style={{ marginBottom: "1.75rem" }}>
@@ -85,22 +101,7 @@ const daftar = () => {
                     <p style={{ color: "red" }}> Username is required.</p>
                   )}
                 </div>
-                <div style={{ marginBottom: "1.75rem" }}>
-                  <label className="d-block input-label">Email</label>
-                  <div className="d-flex w-100 div-input">
-                    <input
-                      {...register("email", {
-                        required: "Required",
-                      })}
-                      type="email"
-                      className="input-field border-0"
-                      placeholder="Masukkan Alamat Email"
-                    />
-                  </div>
-                  {errors.email && (
-                    <p style={{ color: "red" }}> Email is required.</p>
-                  )}
-                </div>
+
                 <div style={{ marginBottom: "1.75rem" }}>
                   <label className="d-block input-label">Password</label>
                   <div className="d-flex w-100 div-input">
@@ -115,106 +116,6 @@ const daftar = () => {
                   </div>
                   {errors.password && (
                     <p style={{ color: "red" }}> Password is required.</p>
-                  )}
-                </div>
-                <div style={{ marginBottom: "1.75rem" }}>
-                  <label className="d-block input-label">Angkatan</label>
-                  <div className="d-flex w-100 div-input">
-                    <input
-                      {...register("angkatan", {
-                        required: "Required",
-                      })}
-                      className="input-field border-0"
-                      type="text"
-                      placeholder="Tahun Angkatan"
-                      autoComplete="on"
-                    />
-                  </div>
-                  {errors.angkatan && (
-                    <p style={{ color: "red" }}> Angkatan is required.</p>
-                  )}
-                </div>
-                <div className="mb-3">
-                  <h1 className="judul">Jurusan :</h1>
-                  <div className="radio d-flex flex-row">
-                    <div className="form-check me-5">
-                      <input
-                        {...register("jurusan")}
-                        className="form-check-input"
-                        type="radio"
-                        name="jurusan"
-                        value="S1 TI"
-                        id="jurusan1"
-                        defaultChecked
-                      />
-                      <label className="form-check-label" htmlFor="jurusan1">
-                        S1 TI
-                      </label>
-                    </div>
-                    <div className="form-check">
-                      <input
-                        {...register("jurusan")}
-                        value="S1 TI"
-                        className="form-check-input"
-                        type="radio"
-                        name="jurusan"
-                        id="jurusan2"
-                        defaultChecked
-                      />
-                      <label className="form-check-label" htmlFor="jurusan2">
-                        D3 MI
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <h1 className="judul">Jenis Kelamin :</h1>
-                  <div className="radio d-flex flex-row">
-                    <div className="form-check me-5">
-                      <input
-                        value="Laki-Laki"
-                        {...register("jenisKelamin")}
-                        className="form-check-input"
-                        type="radio"
-                        name="gender"
-                        id="gender1"
-                        defaultChecked
-                      />
-                      <label className="form-check-label" htmlFor="gender1">
-                        Laki -Laki
-                      </label>
-                    </div>
-                    <div className="form-check">
-                      <input
-                        value="Perempuan"
-                        {...register("jenisKelamin")}
-                        className="form-check-input"
-                        type="radio"
-                        name="gender"
-                        id="gender2"
-                        defaultChecked
-                      />
-                      <label className="form-check-label" htmlFor="gender2">
-                        Perempuan
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div style={{ marginBottom: "1.75rem" }}>
-                  <label className="d-block input-label">Alasan</label>
-                  <div className="d-flex w-100">
-                    <textarea
-                      {...register("alasan", {
-                        required: "Required",
-                      })}
-                      className="form-control"
-                      id="alasan"
-                      rows={3}
-                      defaultValue={""}
-                    />
-                  </div>
-                  {errors.alasan && (
-                    <p style={{ color: "red" }}> Alasan is required.</p>
                   )}
                 </div>
 

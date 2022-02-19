@@ -34,6 +34,7 @@ const header = () => {
             width={578}
             alt=""
             height={457}
+            priority
           />
         </div>
       </div>

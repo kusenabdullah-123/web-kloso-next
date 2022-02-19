@@ -2,8 +2,14 @@ import Navbar from "./component/navbar";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import axios from "axios";
+import Cookie from "js-cookie";
+import { useRouter } from "next/router";
 
-const daftar = () => {
+const login = () => {
+  const url = process.env.SERVER || "http://localhost:1337/";
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -12,8 +18,19 @@ const daftar = () => {
 
   // function to output form data
   // we need to pass it to onSubmit of form element
-  const onSubmit = (formData) => {
-    alert(JSON.stringify(formData));
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(`${url}auth/local/`, {
+        identifier: data.identifier,
+        password: data.password,
+      });
+      if (response.status == 200) {
+        Cookie.set("token", response.data.jwt);
+        router.replace("/");
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   return (
     <section
@@ -56,9 +73,14 @@ const daftar = () => {
                 UKM K.L.O.S.O
                 <br />
               </h1>
-              <form style={{ marginTop: "1.5rem" }} action="" method="post">
+              <form
+                style={{ marginTop: "1.5rem" }}
+                onSubmit={handleSubmit(onSubmit)}
+                action=""
+                method="post"
+              >
                 <div style={{ marginBottom: "1.75rem" }}>
-                  <label htmlFor className="d-block input-label">
+                  <label htmlFor="email" className="d-block input-label">
                     Email
                   </label>
                   <div className="d-flex w-100 div-input">
@@ -79,18 +101,22 @@ const daftar = () => {
                       />
                     </svg>
                     <input
+                      {...register("identifier", {
+                        required: "Required",
+                      })}
                       className="input-field border-0"
                       type="email"
-                      name
-                      id
+                      id="email"
                       placeholder="Your Email Address"
                       autoComplete="on"
-                      required
                     />
                   </div>
                 </div>
                 <div style={{ marginTop: "1rem" }}>
-                  <label htmlFor className="d-block input-label">
+                  <label
+                    htmlFor="password-content-3-5"
+                    className="d-block input-label"
+                  >
                     Password
                   </label>
                   <div className="d-flex w-100 div-input">
@@ -111,42 +137,25 @@ const daftar = () => {
                       />
                     </svg>
                     <input
+                      {...register("password", {
+                        required: "Required",
+                      })}
                       className="input-field border-0"
                       type="password"
-                      name
                       id="password-content-3-5"
                       placeholder="Your Password"
                       minLength={6}
-                      required
                     />
-                    <div onclick="togglePassword()">
-                      <svg
-                        style={{ marginLeft: "0.75rem", cursor: "pointer" }}
-                        width={20}
-                        height={14}
-                        viewBox="0 0 20 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          id="icon-toggle"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M0 7C0.555556 4.66667 3.33333 0 10 0C16.6667 0 19.4444 4.66667 20 7C19.4444 9.52778 16.6667 14 10 14C3.31853 14 0.555556 9.13889 0 7ZM10 5C8.89543 5 8 5.89543 8 7C8 8.10457 8.89543 9 10 9C11.1046 9 12 8.10457 12 7C12 6.90536 11.9934 6.81226 11.9807 6.72113C12.2792 6.89828 12.6277 7 13 7C13.3608 7 13.6993 6.90447 13.9915 6.73732C13.9971 6.82415 14 6.91174 14 7C14 9.20914 12.2091 11 10 11C7.79086 11 6 9.20914 6 7C6 4.79086 7.79086 3 10 3C10.6389 3 11.2428 3.14979 11.7786 3.41618C11.305 3.78193 11 4.35535 11 5C11 5.09464 11.0066 5.18773 11.0193 5.27887C10.7208 5.10171 10.3723 5 10 5Z"
-                          fill="#CACBCE"
-                        />
-                      </svg>
-                    </div>
                   </div>
                 </div>
-                <div
+                {/* <div
                   className="d-flex justify-content-end"
                   style={{ marginTop: "0.75rem" }}
                 >
                   <a href="#" className="forgot-password fst-italic">
                     Forgot Password?
                   </a>
-                </div>
+                </div> */}
                 <button
                   className="btn btn-fill text-white d-block w-100"
                   type="submit"
@@ -167,4 +176,4 @@ const daftar = () => {
     </section>
   );
 };
-export default daftar;
+export default login;
