@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 const daftar = () => {
   const router = useRouter();
   const url = "http://localhost:1337/auth/local/register" || process.env.SERVER;
+  const cloud_server =
+    process.env.CLOUD || "https://kloso-strapi-mongo.herokuapp.com/";
   const {
     register,
     handleSubmit,
@@ -17,7 +19,7 @@ const daftar = () => {
     try {
       const response = await axios({
         method: "POST",
-        url: url,
+        url: cloud_server,
         data: data,
       });
 

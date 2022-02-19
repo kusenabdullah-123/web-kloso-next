@@ -9,7 +9,8 @@ import { useRouter } from "next/router";
 const login = () => {
   const url = process.env.SERVER || "http://localhost:1337/";
   const router = useRouter();
-
+  const cloud_server =
+    process.env.CLOUD || "https://kloso-strapi-mongo.herokuapp.com/";
   const {
     register,
     handleSubmit,
@@ -20,7 +21,7 @@ const login = () => {
   // we need to pass it to onSubmit of form element
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(`${url}auth/local/`, {
+      const response = await axios.post(`${cloud_server}auth/local/`, {
         identifier: data.identifier,
         password: data.password,
       });

@@ -2,7 +2,7 @@ import Styles from "../styles/logout.module.css";
 import { useState, useEffect } from "react";
 import Cookie from "js-cookie";
 import { useRouter } from "next/router";
-import appContext from "../context/appContext";
+
 const logout = () => {
   const router = useRouter();
   const [isloading, setIsloading] = useState(true);

@@ -12,8 +12,15 @@ import AppContext from "../context/appContext";
 import axios from "axios";
 
 export const getStaticProps = async () => {
-  const response = await axios.get("http://localhost:1337/Prokers/");
-  const response2 = await axios.get("http://localhost:1337/Blogs/");
+  const url = process.env.SERVER || "http://localhost:1337/";
+  const cloud_server =
+    process.env.CLOUD || "https://kloso-strapi-mongo.herokuapp.com/";
+  const response = await axios.get(
+    "https://kloso-strapi-mongo.herokuapp.com/Prokers/"
+  );
+  const response2 = await axios.get(
+    "https://kloso-strapi-mongo.herokuapp.com/Blogs/"
+  );
   const proker = response.data;
   const blogs = response2.data;
   return { props: { proker, blogs } };
@@ -21,6 +28,8 @@ export const getStaticProps = async () => {
 
 export default function Home({ proker, blogs }) {
   const url = process.env.SERVER || "http://localhost:1337/";
+  const cloud_server =
+    process.env.CLOUD || "https://kloso-strapi-mongo.herokuapp.com/";
   const [user, setUser] = useState(null);
   const [foto, setFoto] = useState("/profile.png");
   const contex = useContext(AppContext);
@@ -28,7 +37,7 @@ export default function Home({ proker, blogs }) {
     const token = Cookie.get("token");
     if (token) {
       try {
-        const res = await axios.get(`${url}Users/me`, {
+        const res = await axios.get(`${cloud_server}Users/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -53,11 +62,14 @@ export default function Home({ proker, blogs }) {
     const token = Cookie.get("token");
 
     if (user !== null && user.anggota_id !== undefined) {
-      const response = await axios.get(`${url}Anggotas/${user.anggota_id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${cloud_server}Anggotas/${user.anggota_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       contex.foto = `${response.data.foto.url}`;
       setFoto(`${response.data.foto.url}`);
