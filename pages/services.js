@@ -1,81 +1,20 @@
 import Navbar from "./component/navbar";
+import Heads from "./component/heads";
+import HomeService from "./component/homeService";
 import Image from "next/image";
+import Script from "next/script";
 import Footer from "./component/footer";
 const services = () => {
   return (
     <>
-      <section
-        className="h-100 w-100 bg-white"
-        style={{ boxSizing: "border-box" }}
-      >
-        <div
-          className="container-xxl mx-auto p-0 position-relative header-2-2"
-          style={{ fontFamily: '"Poppins", sans-serif' }}
-        >
-          {/* navbar */}
-          <Navbar />
-          {/* header */}
-          <section
-            className="h-100 w-100 bg-white"
-            style={{ boxSizing: "border-box" }}
-          >
-            <div
-              className="container-xxl mx-auto p-0 position-relative header-2-2"
-              style={{ fontFamily: '"Poppins", sans-serif' }}
-            >
-              <div>
-                <div
-                  className="mx-auto d-flex flex-lg-row flex-column hero"
-                  style={{ backgroundColor: "#62b867" }}
-                >
-                  {/* Left Column */}
-                  <div className="left-column d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
-                    <h1 className="title-text-big text-white">
-                      Develope Website Kamu Sendiri
-                    </h1>
-                    <p className="text-white">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Voluptas cum debitis rerum sequi exercitationem vitae
-                      autem eligendi laboriosam impedit voluptates aut
-                      dignissimos asperiores fugiat, repellat perferendis. Sit
-                      reiciendis fugit fuga.
-                    </p>
-                    <button
-                      className="btn btn-success"
-                      style={{
-                        width: 198,
-                        height: 48,
-                        backgroundColor: "#f3fff4",
-                        color: "#4d9651",
-                        border: "none",
-                        borderRadius: 10,
-                        fontSize: 22,
-                      }}
-                    >
-                      Book Now
-                    </button>
-                  </div>
-                  {/* Right Column */}
-                  <div className="right-column text-center d-flex justify-content-center pe-0">
-                    <Image
-                      id="img-fluid"
-                      className="h-auto mw-100"
-                      src="/Saly-31.png"
-                      width={578}
-                      alt=""
-                      height={457}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-      <section
-        className="h-100 w-100"
-        style={{ boxSizing: "border-box", backgroundColor: "#f2f6ff" }}
-      >
+      <Heads />
+      <div>
+        {/* Navabr */}
+        <Navbar />
+
+        {/* Home Service */}
+        <HomeService />
+        {/* order service */}
         <div
           className="content-3-7 overflow-hidden container-xxl mx-auto position-relative"
           style={{ fontFamily: '"Poppins", sans-serif' }}
@@ -104,11 +43,11 @@ const services = () => {
                     <p className="d-flex align-items-center check">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Developing Web
@@ -116,11 +55,11 @@ const services = () => {
                     <p className="d-flex align-items-center check">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Database
@@ -128,11 +67,11 @@ const services = () => {
                     <p className="d-flex align-items-center no-check">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Mock Up
@@ -168,11 +107,11 @@ const services = () => {
                     <p className="d-flex align-items-center check">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Corel Draw
@@ -180,11 +119,11 @@ const services = () => {
                     <p className="d-flex align-items-center check">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       PhotoShop
@@ -192,11 +131,11 @@ const services = () => {
                     <p className="d-flex align-items-center check">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Figma
@@ -204,7 +143,7 @@ const services = () => {
                   </div>
                   <a
                     className="btn btn-success"
-                    href="https://api.whatsapp.com/send?phone=6283847068886&text=Saya%20ingin%20pesan%20UI/UX%20Design"
+                    href="https://api.whatsapp.com/send?phone=6283847068886&text=Saya%20Ingin%20Book%20Fullstack"
                     role="button"
                     style={{
                       width: 198,
@@ -240,11 +179,11 @@ const services = () => {
                     <p className="d-flex align-items-center check text-white">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Install Ulang
@@ -252,11 +191,11 @@ const services = () => {
                     <p className="d-flex align-items-center check text-white">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Install Software
@@ -264,11 +203,11 @@ const services = () => {
                     <p className="d-flex align-items-center check text-white">
                       <span className="span-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                         <Image
-                          className="img-fluid"
                           src="/centang.png"
-                          alt=""
-                          height={20}
+                          alt="centang-icon"
+                          className="img-fluid"
                           width={20}
+                          height={20}
                         />
                       </span>
                       Perbaikan
@@ -276,7 +215,7 @@ const services = () => {
                   </div>
                   <a
                     className="btn btn-success"
-                    href="https://api.whatsapp.com/send?phone=6283847068886&text=Saya%20ingin%20service%20Laptop %20SmartPhone"
+                    href="https://api.whatsapp.com/send?phone=6283847068886&text=Saya%20Ingin%20Book%20Fullstack"
                     role="button"
                     style={{
                       width: 198,
@@ -295,10 +234,11 @@ const services = () => {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
+      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" />
     </>
   );
 };

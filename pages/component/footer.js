@@ -1,60 +1,67 @@
 import Image from "next/image";
 const footer = () => {
   return (
-    <section style={{ boxSizing: "border-box", backgroundColor: "#4d9651" }}>
-      <footer
-        className="row m-0 p-0"
-        style={{ backgroundColor: "#4d9651", height: 180 }}
-      >
-        <div className="col-lg-3 ps-5 row align-items-center">
-          <Image src="/footer.png" alt="" width={216} height={57} />
+    <footer className="footer bg-dark-green d-flex align-items-center justify-content-center">
+      <div className="container-fluid row text-white d-flex flex-wrap">
+        <div className="col-sm-3">
+          <Image
+            src="/footer.png"
+            alt="logo"
+            className="img-fluid"
+            height={57}
+            width={216}
+          />
         </div>
-        <div className="col-lg-7 row align-items-center">
-          <div className="row">
-            <div className="col-lg-3" style={{ color: "white" }}>
-              <div className="title">
-                <h4>Services</h4>
-              </div>
-              <ul>
-                <li>Ui/Ux</li>
-                <li>Front-End Dev</li>
-                <li>Back-End Dev</li>
-                <li>Fullstack Dev</li>
-              </ul>
-            </div>
-            <div className="col-lg-3" style={{ color: "white" }}>
-              <h4>Blog</h4>
-              <ul>
-                <li>Program Kerja</li>
-                <li>Pertemuan Mingguan</li>
-              </ul>
-            </div>
-            <div className="col-lg-3" style={{ color: "white" }}>
-              <h4>Gallery</h4>
-              <ul>
-                <li>Foto Anggota</li>
-                <li>Foto Kegiatan</li>
-              </ul>
-            </div>
-            <div className="col-lg-3" style={{ color: "white" }}>
-              <h4>About</h4>
-              <ul>
-                <li>Susunan Kepengurusan</li>
-                <li>Kontak</li>
-              </ul>
-            </div>
-          </div>
+        <div className="col">
+          <h5>Jasa</h5>
+          <ul>
+            <li>Ui/Ux</li>
+            <li>Front End Dev</li>
+            <li>Back End Dev</li>
+            <li>Fullstack Dev</li>
+          </ul>
         </div>
-        <div className="col-lg-2 row align-items-center">
-          <div className="col-lg-5">
-            <Image src="/logos.png" alt="" height={70} width={70} />
-          </div>
-          <div className="col-lg-5">
-            <Image src="/logok.png" alt="" width={70} height={70} />
-          </div>
+        <div className="col">
+          <h5>Blog</h5>
+          <ul>
+            <li>Program Kerja</li>
+            <li>Pertemuan Mingguan</li>
+          </ul>
         </div>
-      </footer>
-    </section>
+        <div className="col">
+          <h5>Galeri</h5>
+          <ul>
+            <li>Foto Anggota</li>
+            <li>Foto Kegiatan</li>
+          </ul>
+        </div>
+        <div className="col">
+          <h5>Tentang Kami</h5>
+          <ul>
+            <li>Susunan Kepengurusan</li>
+            <li>Kontak</li>
+          </ul>
+        </div>
+        <div className="col">
+          <Image
+            src="/logos.png"
+            srcSet=""
+            className="footer-logo"
+            alt="logo"
+            height={72}
+            width={69}
+          />
+          <Image
+            src="/logok.png"
+            srcSet=""
+            className="footer-logo"
+            alt="logo"
+            height={72}
+            width={69}
+          />
+        </div>
+      </div>
+    </footer>
   );
 };
 export default footer;

@@ -1,3 +1,4 @@
+import Heads from "./component/heads";
 import Navbar from "./component/navbar";
 import Header from "./component/header";
 import SectionProgamKerja from "./component/sectionProgam";
@@ -83,30 +84,23 @@ export default function Home({ proker, blogs }) {
         foto: foto,
       }}
     >
-      <section
-        className="h-100 w-100 bg-white"
-        style={{ boxSizing: "border-box" }}
-      >
-        <div
-          className="container-xxl mx-auto p-0 position-relative header-2-2"
-          style={{ fontFamily: '"Poppins", sans-serif' }}
-        >
-          {/* navbar */}
-          <Navbar />
-          {/* header */}
-          <Header />
-        </div>
-      </section>
-      {/* section progam kerja */}
-      <SectionProgamKerja prokers={proker} />
-      {/* benefit */}
-      <Benefit />
-      {/* services Home */}
-      <HomeService />
-      {/* blog */}
-      <Blog blogs={blogs} />
-      {/* footer */}
-      <Footer />
+      <Heads />
+      <div>
+        {/* Navabr */}
+        <Navbar />
+        {/* header */}
+        <Header />
+        {/* Section Progam kerja */}
+        <SectionProgamKerja />
+        {/* Benefit */}
+        <Benefit />
+        {/* Home Service */}
+        <HomeService />
+        {/* Blog */}
+        <Blog />
+        {/* Footer */}
+        <Footer />
+      </div>
       <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" />
     </AppContext.Provider>
   );

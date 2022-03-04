@@ -1,58 +1,31 @@
 import Image from "next/image";
 const homeService = () => {
   return (
-    <section
-      className="h-100 w-100 bg-white"
-      style={{ boxSizing: "border-box" }}
-    >
-      <div
-        className="container-xxl mx-auto p-0 position-relative header-2-2"
-        style={{ fontFamily: '"Poppins", sans-serif' }}
-      >
-        <div>
-          <div
-            className="mx-auto d-flex flex-lg-row flex-column hero"
-            style={{ backgroundColor: "#62b867" }}
-          >
-            {/* Left Column */}
-            <div className="left-column d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
-              <h1 className="title-text-big text-white">
-                Develop Website Kamu Sendiri
-              </h1>
-              <p className="text-white">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Voluptas cum debitis rerum sequi exercitationem vitae autem
-                eligendi laboriosam impedit voluptates aut dignissimos
-                asperiores fugiat, repellat perferendis. Sit reiciendis fugit
-                fuga.
-              </p>
-              <button
-                className="btn btn-success"
-                style={{
-                  width: 198,
-                  height: 48,
-                  backgroundColor: "#f3fff4",
-                  color: "#4d9651",
-                  border: "none",
-                  borderRadius: 10,
-                  fontSize: 22,
-                }}
-              >
-                Check
-              </button>
-            </div>
-            {/* Right Column */}
-            <div className="right-column text-center d-flex justify-content-center pe-0">
-              <Image
-                id="img-fluid"
-                className="h-auto mw-100"
-                height={500}
-                width={500}
-                src="/Saly-31.png"
-                alt=""
-              />
-            </div>
-          </div>
+    <section className="develop bg-light-green d-flex align-items-center">
+      <div className="container d-flex flex-wrap align-items-center">
+        <div className="col-sm-6 p-4">
+          <h1 className="title-text-big text-white">
+            Develop
+            <br className="d-lg-block d-none" />
+            Website Kamu Sendiri
+          </h1>
+          <p className="text-white desc">
+            anda ingin membuat website portofolio atau company profile ? ,kami
+            bisa membantu mewujudkan keinginan anda untuk memiliki website anda
+            sendiri
+          </p>
+          <button className="btn btn-light text-green border-radius-sm btn-lg">
+            Buat Sekarang
+          </button>
+        </div>
+        <div className="col-sm-6">
+          <Image
+            src="/Saly-31.png"
+            alt="hand shake"
+            className="img-fluid"
+            height={385}
+            width={558}
+          />
         </div>
       </div>
     </section>
