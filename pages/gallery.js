@@ -1,32 +1,78 @@
 import Navbar from "./component/navbar";
-// import Image from "next/image";
-
+import Image from "next/image";
 import Footer from "./component/footer";
 import Unauthorized from "./component/unauthorized";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import AppContext from "../context/appContext";
+import Cookie from "js-cookie";
+import axios from "axios";
+
 const gallery = () => {
-  const { isAuthenticated } = useContext(AppContext);
+  const contex = useContext(AppContext);
+  const cloud_server =
+    process.env.CLOUD || "https://kloso-strapi-mongo.herokuapp.com/";
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(async () => {
+    const token = Cookie.get("token");
+    if (token) {
+      try {
+        // contex.isAuthenticated = true;
+        const response = await axios.get(`${cloud_server}Galleries/`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setImages(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, []);
 
-  return isAuthenticated ? (
-    <section
-      className="h-100 w-100 bg-white"
-      style={{ boxSizing: "border-box" }}
-    >
-      <div
-        className="container-xxl mx-auto p-0 position-relative header-2-2"
-        style={{ fontFamily: '"Poppins", sans-serif' }}
-      >
-        {/* navbar */}
+  if (loading) {
+    return <div>Loading</div>;
+  } else {
+    return contex.isAuthenticated ? (
+      <>
         <Navbar />
-        {/* header */}
+        <header className="d-flex justify-content-center">
+          <h1>Gallery</h1>
+        </header>
+        <section style={{ height: "100vh" }} className="p-3">
+          <div className="row">
+            {images.map((item, index) => {
+              return (
+                <div key={index} className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                  <Image
+                    priority
+                    src={item.image.url}
+                    className="w-100 shadow-1-strong rounded mb-"
+                    alt={item.alt}
+                    width={464}
+                    height={261}
+                  />
+                </div>
+              );
+            })}
+            {/* <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <Image
+              src="/fullstack.jpg"
+              className="w-100 shadow-1-strong rounded mb-"
+              alt="water"
+              width={464}
+              height={261}
+            />
+          </div> */}
+          </div>
+        </section>
 
-        {/* footer */}
         <Footer />
-      </div>
-    </section>
-  ) : (
-    <Unauthorized />
-  );
+      </>
+    ) : (
+      <Unauthorized />
+    );
+  }
 };
 export default gallery;

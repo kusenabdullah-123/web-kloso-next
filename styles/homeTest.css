@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.text-green {
+  color: #4d9651;
+}
+
+.bg-dark-green {
+  background-color: #4d9651;
+}
+
+.bg-light-green {
+  background-color: #62b867;
+}
+nav.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+nav .navbar-brand {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white !important;
+}
+nav .navbar-brand img {
+  background-color: white;
+}
+
+.navbar-light .navbar-toggler {
+  color: white;
+  border: none;
+}
+
+header.header {
+  height: 90vh;
+}
+
+.text-caption {
+  font-weight: 600;
+}
+
+.title-text-big {
+  font-size: 3.75rem;
+  font-weight: 900;
+}
+
+h2.second-title {
+  padding-bottom: 5px;
+  border-bottom: 4px solid #4d9651;
+}
+
+section.benefit,
+section.develop {
+  height: 100vh;
+}
+
+footer.footer {
+  min-height: 40vh;
+}
+footer.footer h5 {
+  font-weight: 700;
+}
+
+footer.footer ul {
+  padding-left: inherit !important;
+}
+
+footer.footer ul .footer-logo {
+  width: 20px;
+}
+
+p.desc {
+  margin-top: 20px;
+}
+
+.border-radius-sm {
+  border-radius: 10px;
+}
+
+/* ukuran hp kebawah */
+@media only screen and (max-width: 600px) {
+  header.header {
+    text-align: center;
+    height: 100vh;
+  }
+  header.header div.container {
+    padding-top: 20px;
+  }
+  p.desc {
+    margin-top: 10px;
+  }
+  .title-text-big {
+    font-size: 3rem;
+  }
+
+  section.proker div.d-flex {
+    flex-direction: column;
+  }
+  section.benefit,
+  section.develop {
+    height: auto;
+  }
+
+  section.develop {
+    padding-top: 20px;
+  }
+
+  section.blog .card {
+    margin-top: 20px;
+  }
+  footer.footer div.container-fluid div:nth-child(odd) {
+    margin-right: 50px;
+  }
+
+  footer.footer div.container-fluid div:first-child {
+    margin: 30px 0;
+  }
+
+  footer.footer div.container-fluid div:last-child {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+/* hp ke atas */
+@media only screen and (min-width: 600px) {
+  .nav-item:last-child {
+    margin-left: 20px;
+  }
+}

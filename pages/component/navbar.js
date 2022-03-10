@@ -4,7 +4,6 @@ import { useContext } from "react";
 import appContext from "../../context/appContext";
 
 const Profile = (props) => {
-  console.log("profile", props);
   return (
     <>
       <Image
@@ -95,11 +94,11 @@ const Navbar = (props) => {
                 <a className="nav-link">Gallery</a>
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link href="/blog">
                 <a className="nav-link">Blog</a>
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link href="/about">
                 <a className="nav-link">Tentang Kami</a>

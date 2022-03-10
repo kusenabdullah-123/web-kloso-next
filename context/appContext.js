@@ -6,5 +6,6 @@ const AppContext = React.createContext({
   isAuthenticated: false,
   user: null,
   foto: "/profile.png",
+  token: "",
 });
 export default AppContext;
