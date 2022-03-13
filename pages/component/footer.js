@@ -12,37 +12,39 @@ const footer = () => {
             width={216}
           />
         </div>
-        <div className="col">
-          <h5>Jasa</h5>
-          <ul>
-            <li>Ui/Ux</li>
-            <li>Front End Dev</li>
-            <li>Back End Dev</li>
-            <li>Fullstack Dev</li>
-          </ul>
+        <div className="col-md-auto d-flex flex-wrap">
+          <div className="col">
+            <h5>Jasa</h5>
+            <ul>
+              <li>Ui/Ux</li>
+              <li>Front End Dev</li>
+              <li>Back End Dev</li>
+              <li>Fullstack Dev</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h5>Blog</h5>
+            <ul>
+              <li>Program Kerja</li>
+              <li>Pertemuan Mingguan</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h5>Galeri</h5>
+            <ul>
+              <li>Foto Anggota</li>
+              <li>Foto Kegiatan</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h5>Tentang Kami</h5>
+            <ul>
+              <li>Susunan Kepengurusan</li>
+              <li>Kontak</li>
+            </ul>
+          </div>
         </div>
-        <div className="col">
-          <h5>Blog</h5>
-          <ul>
-            <li>Program Kerja</li>
-            <li>Pertemuan Mingguan</li>
-          </ul>
-        </div>
-        <div className="col">
-          <h5>Galeri</h5>
-          <ul>
-            <li>Foto Anggota</li>
-            <li>Foto Kegiatan</li>
-          </ul>
-        </div>
-        <div className="col">
-          <h5>Tentang Kami</h5>
-          <ul>
-            <li>Susunan Kepengurusan</li>
-            <li>Kontak</li>
-          </ul>
-        </div>
-        <div className="col">
+        <div className="col-sm-3 d-flex align-items-start justify-content-evenly">
           <Image
             src="/logos.png"
             srcSet=""

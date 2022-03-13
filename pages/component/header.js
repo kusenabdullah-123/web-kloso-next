@@ -41,7 +41,7 @@ const header = () => {
     // </div>
 
     <header className="header bg-light-green d-flex align-items-center">
-      <div className="container d-flex flex-wrap align-items-center">
+      <div className="container bg-light-green d-flex flex-wrap align-items-center">
         <div className="col-sm-6">
           <p className="text-caption text-white">UKM K.L.O.S.O</p>
           <h1 className="title-text-big text-white">

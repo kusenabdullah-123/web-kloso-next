@@ -51,13 +51,22 @@ const Navbar = (props) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark-green">
       <div className="container">
         <Link href="/">
-          <a className="navbar-brand" href="">
-            <Image
+          <a
+            className="navbar-brand d-flex align-items-center justify-content-between"
+            href=""
+          >
+            {/* <Image
               src="/logok.png"
               alt="logo"
               width={40}
               height={40}
               className="d-inline-block align-text-top"
+            /> */}
+            <img
+              src="/logok.png"
+              className="d-inline-block align-text-top me-1"
+              width="40px"
+              height="40px"
             />
             KLOSO
           </a>

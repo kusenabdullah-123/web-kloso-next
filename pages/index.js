@@ -6,7 +6,6 @@ import Benefit from "./component/benefit";
 import HomeService from "./component/homeService";
 import Blog from "./component/blog";
 import Footer from "./component/footer";
-import Script from "next/script";
 import Cookie from "js-cookie";
 import { useState, useEffect, useContext } from "react";
 import AppContext from "../context/appContext";
@@ -85,24 +84,20 @@ export default function Home({ proker, blogs }) {
       }}
     >
       <Heads />
-      <body>
-        {/* Navabr */}
-        <Navbar />
-        {/* header */}
-        <Header />
-        {/* Section Progam kerja */}
-        <SectionProgamKerja />
-        {/* Benefit */}
-        <Benefit />
-        {/* Home Service */}
-        <HomeService />
-        {/* Blog */}
-        <Blog />
-        {/* Footer */}
-        <Footer />
-      </body>
-
-      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" />
+      {/* Navabr */}
+      <Navbar />
+      {/* header */}
+      <Header />
+      {/* Section Progam kerja */}
+      <SectionProgamKerja />
+      {/* Benefit */}
+      <Benefit />
+      {/* Home Service */}
+      <HomeService />
+      {/* Blog */}
+      <Blog />
+      {/* Footer */}
+      <Footer />
     </AppContext.Provider>
   );
 }

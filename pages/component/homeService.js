@@ -1,13 +1,11 @@
 import Image from "next/image";
 const homeService = () => {
   return (
-    <section className="develop bg-light-green d-flex align-items-center">
+    <section className="develop bg-light-green d-flex">
       <div className="container d-flex flex-wrap align-items-center">
         <div className="col-sm-6 p-4">
           <h1 className="title-text-big text-white">
-            Develop
-            <br className="d-lg-block d-none" />
-            Website Kamu Sendiri
+            Develop Website Kamu Sendiri
           </h1>
           <p className="text-white desc">
             anda ingin membuat website portofolio atau company profile ? ,kami

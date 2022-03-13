@@ -78,15 +78,20 @@ p.desc {
 .border-radius-sm {
   border-radius: 10px;
 }
+header.header div.container {
+  align-items: center;
+}
 
 /* ukuran hp kebawah */
 @media only screen and (max-width: 600px) {
   header.header {
     text-align: center;
-    height: 100vh;
+    height: auto;
   }
   header.header div.container {
+    margin-top: 20px;
     padding-top: 20px;
+    align-items: start;
   }
   p.desc {
     margin-top: 10px;
@@ -110,15 +115,15 @@ p.desc {
   section.blog .card {
     margin-top: 20px;
   }
-  footer.footer div.container-fluid div:nth-child(odd) {
-    margin-right: 50px;
+  footer.footer div.container-fluid div.col-md-auto .col {
+    margin-right: 30px;
   }
 
-  footer.footer div.container-fluid div:first-child {
+  footer.footer div.container-fluid div.col-sm-3:first-child {
     margin: 30px 0;
   }
 
-  footer.footer div.container-fluid div:last-child {
+  footer.footer div.container-fluid div.col-sm-3:last-child {
     margin: 20px 0;
     display: flex;
     align-items: center;
